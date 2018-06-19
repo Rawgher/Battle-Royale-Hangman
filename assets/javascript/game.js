@@ -1,6 +1,7 @@
 // reference DOM get elementsbyID for any placeholders, guessedletters, guessesleft, wins and losses
 
-
+var wins = document.getElementById("#wins").textContent("win: " + wins);
+var losses = document.getElementById("#losses").textContent("losses: " + losses);
 // create words to use and randomize them // 
 
 var scifiWords = ["blaster", "spaceship", "asteroid", "cruiser", "laser", "starship", "space", "lightspeed"];
