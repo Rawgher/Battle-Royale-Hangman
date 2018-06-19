@@ -1,4 +1,3 @@
-var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 var guess; //user guess
 var letters = []; //correctly guessed letters
 var wrongLetters = []; //incorrectly guessed letters
@@ -10,6 +9,7 @@ var wordList = ["blaster", "spaceship", "asteroid", "cruiser", "laser", "starshi
 
 //randomly chooses a word from wordList
 var word = wordList[Math.floor(Math.random() * wordList.length)];
+
 
 //choosen word is replaced with
 function start() {
@@ -45,6 +45,7 @@ function checkLetter() {
       document.getElementById("wrongGuesses").innerHTML = wrongLetters.join(" ");
 
     }
+    document.getElementById("guessesLeft").textContent = guessesLeft;
   }
 }
 
