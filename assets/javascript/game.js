@@ -1,7 +1,12 @@
 // reference DOM get elementsbyID for any placeholders, guessedletters, guessesleft, wins and losses
+var randomWord = document.getElementById("chosen-word");
+var incorrectLetters = document.getElementById("wrong-choices");
+var guessesLeft = document.getElementById("guesses-left");
+var wins = document.getElementById("wins");
+var losses = document.getElementById("losses");
 
-var wins = document.getElementById("#wins").textContent("win: " + wins);
-var losses = document.getElementById("#losses").textContent("losses: " + losses);
+
+
 // create words to use and randomize them // 
 
 var scifiWords = ["blaster", "spaceship", "asteroid", "cruiser", "laser", "starship", "space", "lightspeed", "star destroyer"];
@@ -28,7 +33,12 @@ function gameStart () {
         randomWordHolder.push("_");
         }
     }
+    guessesLeft.textContent = guessesLeft;
+    randomWord.textContent = randomWordHolder.join("");
+    incorrectLetters.textContent = incorrectLetters;
 }
+
+
 
 // make letter bank (letters used)
 // make var for guesses left 
@@ -42,12 +52,12 @@ function gameStart () {
 // check to see if lost
 // check to see if we win
 
-$("#img-div").html("<img src=''>"); // blaster url in ''//
-$("#img-div").html("<img src=''>"); // spaceship url in ''//
-$("#img-div").html("<img src=''>"); // asteroid url in ''//
-$("#img-div").html("<img src=''>"); // cruiser url in ''//
-$("#img-div").html("<img src=''>"); // laser url in ''//
-$("#img-div").html("<img src=''>"); // starship url in ''//
-$("#img-div").html("<img src=''>"); // space url in ''//
-$("#img-div").html("<img src=''>"); // lightspeed url in ''//
-$("#img-div").html("<img src=''>"); // star destroyer url in ''//
+//$("#img-div").html("<img src=''>"); // blaster url in ''//
+//$("#img-div").html("<img src=''>"); // spaceship url in ''//
+//$("#img-div").html("<img src=''>"); // asteroid url in ''//
+//$("#img-div").html("<img src=''>"); // cruiser url in ''//
+//$("#img-div").html("<img src=''>"); // laser url in ''//
+//$("#img-div").html("<img src=''>"); // starship url in ''//
+//$("#img-div").html("<img src=''>"); // space url in ''//
+//$("#img-div").html("<img src=''>"); // lightspeed url in ''//
+//$("#img-div").html("<img src=''>"); // star destroyer url in ''// 
