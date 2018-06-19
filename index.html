@@ -10,6 +10,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
+        <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
         <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
         <script src="assets/javascript/game.js"></script>
     </head>
@@ -17,25 +18,22 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <H1>SciFi Hangman</H1>
-        <div>
+        <H1 class="tc">SciFi Hangman</H1>
+        <div class="fl w-100 tc position">
             <div>This one will hold my image/title name</div>
-            <div>Press any key to take a guess</div>
-            <div>
-                <div id="image">This will be the image</div>
-                <div id="chosen-word">This will be where the word is</div>
+            <div class="fl w-100">Press any key to take a guess</div>
+            <div class="fl w-100">
+                <div class="fl w-third" id="image">This will be the image</div>
+                <div class="fl w-two-thirds" id="chosen-word">This will be where the word is</div>
             </div>
-            <div>
-                <div id="wins">Wins here</div>
-                <div>
+            <div class="fl w-100">
+                <div class="fl w-third" id="wins">Wins here</div>
+                <div class="fl w-third">
                     <div id="guesses-left">guesses left here</div>
                     <div id="wrong-choices">wrong letters here</div>
-                </div>
+                </div class="fl w-third">
                 <div id="losses">losses here</div>
             </div>
         </div>
-        <!--want to make a container to hold all the elements-->
-            <!--need a space for images; maybe center aligned on the page-->
-        
     </body>
 </html>
