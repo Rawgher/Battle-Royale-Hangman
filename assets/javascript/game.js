@@ -4,28 +4,29 @@ var wins = document.getElementById("#wins").textContent("win: " + wins);
 var losses = document.getElementById("#losses").textContent("losses: " + losses);
 // create words to use and randomize them // 
 
-var scifiWords = ["blaster", "spaceship", "asteroid", "cruiser", "laser", "starship", "space", "lightspeed"];
+var scifiWords = ["blaster", "spaceship", "asteroid", "cruiser", "laser", "starship", "space", "lightspeed", "star destroyer"];
 var randomWord = scifiWords[Math.floor(Math.random() * scifiWords.length)];
 
 // make variables for wins losses and, picked placeholder picked word
 // want to automatically start game
 
-var gameRunning;
 var wins = 0;
 var losses = 0;
 var guessesLeft = 13;
-var pickedWord = "";
-var pickedWordHolder = [];
+var randomWord = "";
+var randomWordHolder = [];
 var incorrectLetters = [];
 
 function gameStart () {
-    gameRunning = true;
-    guessesLeft = 13;
     incorrectLetters = [];
-    pickedWordHolder = [];
-    pickedWord = randomWord;
-    for (i = 0; i < pickedWord.length; i++) {
-        pickedWordHolder.push("_");
+    randomWordHolder = [];
+    randomWord = randomWord;
+    for (i = 0; i < randomWord.length; i++) {
+        if (randomWord[i] === " ") {
+            randomWordHolder.push(" ");
+        } else{
+        randomWordHolder.push("_");
+        }
     }
 }
 
@@ -41,3 +42,12 @@ function gameStart () {
 // check to see if lost
 // check to see if we win
 
+$("#img-div").html("<img src=''>"); // blaster url in ''//
+$("#img-div").html("<img src=''>"); // spaceship url in ''//
+$("#img-div").html("<img src=''>"); // asteroid url in ''//
+$("#img-div").html("<img src=''>"); // cruiser url in ''//
+$("#img-div").html("<img src=''>"); // laser url in ''//
+$("#img-div").html("<img src=''>"); // starship url in ''//
+$("#img-div").html("<img src=''>"); // space url in ''//
+$("#img-div").html("<img src=''>"); // lightspeed url in ''//
+$("#img-div").html("<img src=''>"); // star destroyer url in ''//
