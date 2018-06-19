@@ -1,3 +1,67 @@
+var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+var guess; //user guess
+var letters = []; //correctly guessed letters
+var wrongLetters = []; //incorrectly guessed letters
+var counter = 0; //counts correct letters
+var guessesLeft = 13;
+var lives; //counts users lives
+
+var wordList = ["blaster", "spaceship", "asteroid", "cruiser", "laser", "starship", "space", "lightspeed", "star destroyer"]; //FILL LIST LATER!!
+
+//randomly chooses a word from wordList
+var word = wordList[Math.floor(Math.random() * wordList.length)];
+
+//choosen word is replaced with
+function start() {
+  for (i = 0; i < word.length; i++) {
+    letters[i] = "__";
+  }
+
+  document.getElementById("answer").innerHTML = letters.join(" ");
+  console.log(word);
+}
+
+function checkLetter() {
+  document.onkeyup = function(event) {
+    guess = event.key.toLowerCase();
+    var found = false; //lets use bool to check if a letter was found
+    for (i = 0; i < word.length; i++) {
+      if (guess === word[i]) {
+        letters[i] = guess;
+        document.getElementById("answer").innerHTML = letters.join(" ");
+        found = true;
+      }
+    }
+    //now all letters have been checked, was any found
+    if (found) return; //if yes return
+    
+    //wrong, lets also see if 
+    //it's not already logged, if not add it
+    //you could also then use  wrongLetters.length
+    //for working out if gueses area all used up.
+    if (wrongLetters.indexOf(guess) < 0) {
+      wrongLetters.push(guess);
+      guessesLeft--;
+      document.getElementById("wrongGuesses").innerHTML = wrongLetters.join(" ");
+
+    }
+  }
+}
+
+start();
+checkLetter();
+
+
+
+
+
+
+
+
+
+
+
+
 // reference DOM get elementsbyID for any placeholders, guessedletters, guessesleft, wins and losses
 // var $guessedLetters = document.getElementById("guessed-letters");
 // var $newWord = document.getElementById("chosen-word");
@@ -10,47 +74,48 @@
 
 // create words to use and randomize them // 
 
-var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
-var guess; //users guess
-var letters = []; //correctly guessed letters
-var incorrectLetters = [];
-var counter = 0; //do i need this?
-var guessesLeft = 13;
+// var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+// var guess; //users guess
+// var letters = []; //correctly guessed letters
+// var incorrectLetters = [];
+// var counter = 0; //do i need this?
+// var guessesLeft = 13;
 
-var scifiWords = ["blaster", "spaceship", "asteroid", "cruiser", "laser", "starship", "space", "lightspeed", "star destroyer"];
-var randomWord = scifiWords[Math.floor(Math.random() * scifiWords.length)];
+// var scifiWords = ["blaster", "spaceship", "asteroid", "cruiser", "laser", "starship", "space", "lightspeed", "star destroyer"];
+// var randomWord = scifiWords[Math.floor(Math.random() * scifiWords.length)];
 
 
-function start() {
-    for (i = 0; i <randomWord.length; i++) {
-        letters[i] = "__";
-    }
+// function start() {
+//     for (i = 0; i <randomWord.length; i++) {
+//         letters[i] = "__";
+//     }
 
-    document.getElementById("chosen-word").innerHTML = letters.join(" ");
-}
+//     document.getElementById("chosen-word").textContent = letters.join("");
+// }
 
-function checkLetter() {
-    document.onKeyUp = function(event) {
-        guess = event.key.toLowerCase();
-        var found = false;
-        for (i = 0; i <randomWord.length; i++) {
-            if (guess === randomWord[i]) {
-                letters[i] = guess;
-                document.getElementById("chosen-word").innerHTML = letters.join("");
-                found = true;
-            }
-        }
-        if (found) return;
+// function checkLetter() {
+//     document.onKeyUp = function(event) {
+//         guess = event.key.toLowerCase();
+//         var found = false;
+//         for (i = 0; i < randomWord.length; i++) {
+//             if (guess === randomWord[i]) {
+//                 letters[i] = guess;
+//                 document.getElementById("chosen-word").textContent = letters.join("");
+//                 found = true;
+//             }
+//         }
+//         if (found) return;
 
-        if(incorrectLetters.indexOf(guess) < 0) {
-            incorrectLetters.push(guess);
-            document.getElementById("wrong-choices").innerHTML = incorrectLetters.join("");
-        }
-    }
-}
+//         if(incorrectLetters.indexOf(guess) < 0) {
+//             incorrectLetters.push(guess);
+//             guessesLeft--;
+//             document.getElementById("wrong-choices").textContent = incorrectLetters.join("");
+//         }
+//     }
+// }
 
-start();
-checkLetter();
+// start();
+// checkLetter();
 
 
 

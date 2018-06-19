@@ -12,8 +12,8 @@
         <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
         <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
         <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
-        <script src="assets/javascript/game.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="assets/javascript/game.js" async defer></script>
+        
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -25,7 +25,7 @@
             <div class="fl w-100 spacing">Press any key to take a guess</div>
             <div class="fl w-100 spacing">
                 <div class="fl w-third" id="img-div">This will be the image</div>
-                <div class="fl w-two-thirds" id="chosen-word">_____ ___ ____ __ _ _ </div>
+                <div class="fl w-two-thirds" id="answer">_____ ___ ____ __ _ _ </div>
             </div>
             <div class="fl w-100 spacing">
                 <div class="fl w-third">
@@ -37,7 +37,7 @@
                     <br>
                     <div class="fl w-100">
                         <div>Incorrect Letters:</div>
-                        <div id="wrong-choices">a b c d </div>
+                        <div id="wrongGuesses">a b c d </div>
                     </div>
                 </div>
                 <div class="fl w-third">
