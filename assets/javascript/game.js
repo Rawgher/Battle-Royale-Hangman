@@ -1,5 +1,5 @@
 // reference DOM get elementsbyID for any placeholders, guessedletters, guessesleft, wins and losses
-var randomWord = document.getElementById("chosen-word");
+var newWord = document.getElementById("chosen-word");
 var incorrectLetters = document.getElementById("wrong-choices");
 var guessesLeft = document.getElementById("guesses-left");
 var wins = document.getElementById("wins");
@@ -19,36 +19,36 @@ var wins = 0;
 var losses = 0;
 var guessesLeft = 13;
 var newWord = "";
-var answerArray = [];
-var incorrectLetters = [];
+var randomWordArray = [];
+var incorrectLetterArray = [];
 
-document.onKeyUp = function startUp() {
-    //incorrectLetters = [];
-    //randomWordHolder = [];
-    //newWord = randomWord;
-    for (var i = 0; i < randomWord.length; i++) {
-        if (answerArray[i] === " ") {
-            answerArray.push(" ");
-        } else{
-        answerArray.push("_");
+document.onKeyUp = function (event) {
+
+function newGame() {
+    // resetting game
+    guessesLeft = 13;
+    incorrectLetterArray = [];
+    randomWordArray = [];
+
+
+    // picking a word
+    newWord = randomWord;
+
+    // making placeholders of word
+    for (var i = 0; i < newWord.length; i++) {
+        if (newWord[i] === " ") {
+            randomWordArray.push(" ");
+        } else {
+            randomWordArray.push("_");
         }
     }
+
     guessesLeft.textContent = guessesLeft;
     newWord.textContent = randomWordHolder.join("");
-    incorrectLetters.textContent = incorrectLetters;
+    incorrectLetters.textContent = incorrectLetterArray;
 }
 
-function Letter () {
-    
-    if (letter.length > 0) {
-        for (var i = 0; i <randomWord.length; i++) {
-            if (randomWord[i] === letter) {
-                answerArray[i] = letter;
-            }
-        }
-    }
-    guessesLeft--;
-}
+
 
 // make letter bank (letters used)
 // make var for guesses left 
@@ -74,3 +74,5 @@ function Letter () {
 
 //document.getElementById("wins").textContent = "wins: " + wins;
 //document.getElementById("losses").textContent = "losses: " + losses;
+
+}
