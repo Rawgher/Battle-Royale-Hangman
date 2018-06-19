@@ -1,9 +1,10 @@
 // reference DOM get elementsbyID for any placeholders, guessedletters, guessesleft, wins and losses
-var newWord = document.getElementById("chosen-word");
-var incorrectLetters = document.getElementById("wrong-choices");
-var guessesLeft = document.getElementById("guesses-left");
-var wins = document.getElementById("wins");
-var losses = document.getElementById("losses");
+var $guessedLetters = document.getElementById("guessed-letters");
+var $newWord = document.getElementById("chosen-word");
+var $incorrectLetters = document.getElementById("wrong-choices");
+var $guessesLeft = document.getElementById("guesses-left");
+var $wins = document.getElementById("wins");
+var $losses = document.getElementById("losses");
 
 
 
@@ -17,12 +18,14 @@ var randomWord = scifiWords[Math.floor(Math.random() * scifiWords.length)];
 
 var wins = 0;
 var losses = 0;
+var gameRunning = true;
 var guessesLeft = 13;
 var newWord = "";
 var randomWordArray = [];
+var guessedLetterArray = [];
 var incorrectLetterArray = [];
 
-document.onKeyUp = function (event) {
+
 
 function newGame() {
     // resetting game
@@ -43,12 +46,27 @@ function newGame() {
         }
     }
 
-    guessesLeft.textContent = guessesLeft;
-    newWord.textContent = randomWordHolder.join("");
-    incorrectLetters.textContent = incorrectLetterArray;
+    $guessesLeft.textContent = guessesLeft;
+    $newWord.textContent = randomWordArray.join("");
+    $incorrectLetters.textContent = incorrectLetterArray;
 }
 
+function letterGuess(letter) {
+    console.log(letter);
 
+    if (guessedLetterArray.indexOf(letter) === -1) {
+        guessedLetterArray.push(letter);
+
+        for (var i = 0; i > newWord.length; i++) {
+            if (newWord[i] === letter) {
+                randomWordAarry[i] === letter;
+            }
+        }
+    }
+
+    $newWord.textContent = randomWordArray.join("");
+
+}
 
 // make letter bank (letters used)
 // make var for guesses left 
@@ -75,4 +93,8 @@ function newGame() {
 //document.getElementById("wins").textContent = "wins: " + wins;
 //document.getElementById("losses").textContent = "losses: " + losses;
 
+document.onKeyUp = function(event) {
+    if (event.keyCode >= 65 && event.keyCode <= 90) {
+        letterGuess(event.key);
+    }
 }
