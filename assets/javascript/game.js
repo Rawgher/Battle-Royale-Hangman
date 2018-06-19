@@ -18,27 +18,37 @@ var randomWord = scifiWords[Math.floor(Math.random() * scifiWords.length)];
 var wins = 0;
 var losses = 0;
 var guessesLeft = 13;
-var randomWord = "";
-var randomWordHolder = [];
+var newWord = "";
+var answerArray = [];
 var incorrectLetters = [];
 
-function gameStart () {
-    incorrectLetters = [];
-    randomWordHolder = [];
-    randomWord = randomWord;
-    for (i = 0; i < randomWord.length; i++) {
-        if (randomWord[i] === " ") {
-            randomWordHolder.push(" ");
+document.onKeyUp = function startUp() {
+    //incorrectLetters = [];
+    //randomWordHolder = [];
+    //newWord = randomWord;
+    for (var i = 0; i < randomWord.length; i++) {
+        if (answerArray[i] === " ") {
+            answerArray.push(" ");
         } else{
-        randomWordHolder.push("_");
+        answerArray.push("_");
         }
     }
     guessesLeft.textContent = guessesLeft;
-    randomWord.textContent = randomWordHolder.join("");
+    newWord.textContent = randomWordHolder.join("");
     incorrectLetters.textContent = incorrectLetters;
 }
 
-
+function Letter () {
+    
+    if (letter.length > 0) {
+        for (var i = 0; i <randomWord.length; i++) {
+            if (randomWord[i] === letter) {
+                answerArray[i] = letter;
+            }
+        }
+    }
+    guessesLeft--;
+}
 
 // make letter bank (letters used)
 // make var for guesses left 
@@ -61,3 +71,6 @@ function gameStart () {
 //$("#img-div").html("<img src=''>"); // space url in ''//
 //$("#img-div").html("<img src=''>"); // lightspeed url in ''//
 //$("#img-div").html("<img src=''>"); // star destroyer url in ''// 
+
+//document.getElementById("wins").textContent = "wins: " + wins;
+//document.getElementById("losses").textContent = "losses: " + losses;
