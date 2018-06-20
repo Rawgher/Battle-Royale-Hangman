@@ -3,15 +3,16 @@ var letters = []; //correctly guessed letters
 var wrongLetters = []; //incorrectly guessed letters
 var counter = 0; //counts correct letters
 var guessesLeft = 13;
-var lives; //counts users lives
+var wins;
+var losses; 
 
-var wordList = ["blaster", "spaceship", "asteroid", "cruiser", "laser", "starship", "space", "lightspeed", "star destroyer"]; //FILL LIST LATER!!
+var wordList = ["blaster", "spaceship", "asteroid", "cruiser", "laser", "starship", "space", "lightspeed"]; 
 
 //randomly chooses a word from wordList
 var word = wordList[Math.floor(Math.random() * wordList.length)];
 
 
-//choosen word is replaced with
+//chosen word is replaced with __
 function start() {
   for (i = 0; i < word.length; i++) {
     letters[i] = "__";
@@ -24,7 +25,7 @@ function start() {
 function checkLetter() {
   document.onkeyup = function(event) {
     guess = event.key.toLowerCase();
-    var found = false; //lets use bool to check if a letter was found
+    var found = false; //checking if a letter was found in word
     for (i = 0; i < word.length; i++) {
       if (guess === word[i]) {
         letters[i] = guess;
@@ -32,12 +33,10 @@ function checkLetter() {
         found = true;
       }
     }
-    //now all letters have been checked, was any found
+
     if (found) return; //if yes return
     
-    //wrong, lets also see if 
-    //it's not already logged, if not add it
-    //you could also then use  wrongLetters.length
+
     //for working out if gueses area all used up.
     if (wrongLetters.indexOf(guess) < 0) {
       wrongLetters.push(guess);
@@ -54,13 +53,21 @@ checkLetter();
 
 
 
+// ending game with this? https://stackoverflow.com/questions/27264230/how-to-reset-a-page-and-how-to-score-a-win-in-hangman
+if (guessesLeft === 0) {
+    alert("You lose, better luck next time!");
+    newGame(); // begin new game
 
 
+//winning? need to change to js instead of jquery (same html as above)
+if ($("#word").text() === word) {
+    if (window.confirm("You win! Play again?")) {
+        newGame();
 
-
-
-
-
+if (document.getElementById("answer") === word[i]) {
+    alert("You win! Play again!")
+    newGame();
+}
 
 
 // reference DOM get elementsbyID for any placeholders, guessedletters, guessesleft, wins and losses
