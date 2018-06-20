@@ -1,5 +1,6 @@
 var guess; //user guess
 var letters = []; //correctly guessed letters
+//var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "_"];
 var wrongLetters = []; //incorrectly guessed letters
 var counter = 0; //counts correct letters
 var guessesLeft = 13;
@@ -26,6 +27,7 @@ function start() {
 function checkLetter() {
   document.onkeyup = function(event) {
     guess = event.key.toLowerCase();
+    //guess = event.keyCode >= 65 && event.keyCode <= 90;
     var found = false; //checking if a letter was found in word
     for (i = 0; i < word.length; i++) {
       if (guess === word[i]) {
@@ -54,23 +56,23 @@ checkLetter();
 
 
 
-// ending game with this? https://stackoverflow.com/questions/27264230/how-to-reset-a-page-and-how-to-score-a-win-in-hangman
-if (guessesLeft === 0) {
-    losses++;
-    alert("You lose, better luck next time!");
-    newGame(); // begin new game
-}
+// // ending game with this? https://stackoverflow.com/questions/27264230/how-to-reset-a-page-and-how-to-score-a-win-in-hangman
+// if (guessesLeft === 0) {
+//     losses++;
+//     alert("You lose, better luck next time!");
+//     newGame(); // begin new game
+// }
 
-//winning? need to change to js instead of jquery (same html as above)
-if ($("#word").text() === word) {
-    wins++;
-    if (window.confirm("You win! Play again?")) {
-        newGame();
+// //winning? need to change to js instead of jquery (same html as above)
+// if ($("#word").text() === word) {
+//     wins++;
+//     if (window.confirm("You win! Play again?")) {
+//         newGame();
 
-if (document.getElementById("answer") === word[i]) {
-    alert("You win! Play again!")
-    newGame();
-}
+// if (document.getElementById("answer") === word[i]) {
+//     alert("You win! Play again!")
+//     newGame();
+// }
 
 
 // reference DOM get elementsbyID for any placeholders, guessedletters, guessesleft, wins and losses
