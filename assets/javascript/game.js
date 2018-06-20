@@ -11,6 +11,7 @@ var wordList = ["blaster", "spaceship", "asteroid", "cruiser", "laser", "starshi
 //randomly chooses a word from wordList
 var word = wordList[Math.floor(Math.random() * wordList.length)];
 
+// add document.ready funciton
 
 //chosen word is replaced with __
 function start() {
