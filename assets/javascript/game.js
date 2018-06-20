@@ -55,12 +55,14 @@ checkLetter();
 
 // ending game with this? https://stackoverflow.com/questions/27264230/how-to-reset-a-page-and-how-to-score-a-win-in-hangman
 if (guessesLeft === 0) {
+    losses++;
     alert("You lose, better luck next time!");
     newGame(); // begin new game
-
+}
 
 //winning? need to change to js instead of jquery (same html as above)
 if ($("#word").text() === word) {
+    wins++;
     if (window.confirm("You win! Play again?")) {
         newGame();
 
