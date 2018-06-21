@@ -48,6 +48,8 @@ function start() {
   console.log(word);
 }
 
+//need to change 53 - 65 to be more like 67 - 81
+
 function checkLetter() {
   document.onkeyup = function(event) {
     guess = event.key.toLowerCase();
@@ -61,6 +63,22 @@ function checkLetter() {
     }
 
     if (found) return; //if yes return
+
+    // function letterGuess(letter) {
+
+//     if (guessedLetters.indexOf(letter) === -1) {
+//         guessedLetters.push(letter);
+
+//         for (var i = 0; i < randomWord.length; i++) {
+//             if (randomWord[i].toLowerCase() === letter.toLowerCase) {
+//                 randomWordHolder[i] = letter;
+//             }
+//         }
+//     }
+
+//     $randomWord.textContent = randomWordHolder.join("");
+
+// }
     
 
     //for working out if gueses area all used up.
@@ -74,28 +92,50 @@ function checkLetter() {
   }
 }
 
-function youWin() {
- for (var i = 0; i < letters.length; i++) {   
-    if (letters[i] === "__") {
-        return false;
-        }
-    } return true;
-    wins++;
-}
 
-function youLose() {
-    if (guessesLeft === 0) {
-        alert("You lose");
-        losses++;
-    }
-}
+// function checkIncorrect(letter) {
+//     if (randomWordHolder.indexOf(letter) === -1 && randomWordHolder.indexOf(letter.toUpperCase)) === -1 {
+//         guessesLeft--;
+//         incorrectLetters.push(letter);
+//         $guessedLetters.textContent = incorrectLetters.join(" ");
+//         $guessedLetters.textContent = guessesLeft;
+//     }
+//     checkLoss();
+// )
+    
+// function checkLoss() {
+//     if (guessesLeft === 0) {
+//         losses++;
+//         $losses.textContent = losses;
+//         alert("you suck");
+//         gameReset;
+//     }
+// }
+
+// function checkWin() {
+//     if (randomWord.toLowerCase() === randomWordHolderjoin("").toLowerCase()) {
+//         wins++;
+//         alert("you win");
+//         $wins.textContent = wins;
+//     }
+//     checkWin();
+// }
 
 
 start();
 checkLetter();
-youWin();
-youLose();
 
+
+
+
+
+
+    document.onKeyUp = function(event) {
+    if (event.keyCode >= 65 && event.keyCode <= 90) {
+        checkLetter(event.key);
+    }
+
+}
 
 
 
