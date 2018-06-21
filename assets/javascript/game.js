@@ -1,13 +1,14 @@
 var guess; //user guess
 var letters = []; //correctly guessed letters
-//var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "_"];
+var availableLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "_"];
 var wrongLetters = []; //incorrectly guessed letters
 var counter = 0; //counts correct letters
 var guessesLeft = 13;
 var wins;
 var losses; 
 
-var wordList = ["blaster", "spaceship", "asteroid", "cruiser", "laser", "starship", "space", "lightspeed"]; 
+// change this into an array filled with objects. add an image to each word. {word: "--", image: "location.png"},
+var wordList = ["blaster", "spaceship", "asteroid", "cruiser", "laser", "space station", "space", "lightspeed"]; 
 
 //randomly chooses a word from wordList
 var word = wordList[Math.floor(Math.random() * wordList.length)];
@@ -27,7 +28,6 @@ function start() {
 function checkLetter() {
   document.onkeyup = function(event) {
     guess = event.key.toLowerCase();
-    //guess = event.keyCode >= 65 && event.keyCode <= 90;
     var found = false; //checking if a letter was found in word
     for (i = 0; i < word.length; i++) {
       if (guess === word[i]) {
