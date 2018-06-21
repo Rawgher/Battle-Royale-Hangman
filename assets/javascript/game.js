@@ -1,11 +1,12 @@
 var guess; //user guess
 var letters = []; //correctly guessed letters
-var availableLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "_"];
+var availableLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "_"];
 var wrongLetters = []; //incorrectly guessed letters
-var counter = 0; //counts correct letters
 var guessesLeft = 13;
 var wins;
 var losses; 
+var youWin = "You won! Can you get the next one though?";
+var youLose = "No hard feelings kid. Try again";
 
 // change this into an array filled with objects. add an image to each word. {word: "--", image: "location.png"},
 var wordList = ["blaster", "spaceship", "asteroid", "cruiser", "laser", "space station", "space", "lightspeed"]; 
@@ -14,6 +15,22 @@ var wordList = ["blaster", "spaceship", "asteroid", "cruiser", "laser", "space s
 var word = wordList[Math.floor(Math.random() * wordList.length)];
 
 // add document.ready funciton
+
+//line 19-33 are new lines
+// function reset() {
+//     guessesLeft = 13;
+//     wrongLetters = [];
+//     word;
+//     letters = [];
+//     for (var i = 0; i < word.length; i++) {
+//         if (word[i] === " ") {
+//             letters.push(" ");
+//         }
+//         else {
+//             letters.push("__");
+//         }
+//     }
+// }
 
 //chosen word is replaced with __
 function start() {
@@ -51,8 +68,22 @@ function checkLetter() {
   }
 }
 
+// //function youWin() {
+//     if 
+// }
+
+// function youLose() {
+//     if (guessesLeft === 0) {
+//         console.log("You lose");
+//     }
+// }
+
+
 start();
 checkLetter();
+
+
+
 
 
 
