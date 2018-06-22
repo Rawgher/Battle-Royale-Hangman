@@ -1,6 +1,10 @@
+$(document).ready (function()
+
+});
+
 var guess; //user guess
 var letters = []; //correctly guessed letters
-var availableLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "_"];
+//var availableLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "_"];
 var wrongLetters = []; //incorrectly guessed letters
 var guessesLeft = 13;
 var wins;
@@ -130,12 +134,12 @@ checkLetter();
 
 
 
-    document.onKeyUp = function(event) {
-    if (event.keyCode >= 65 && event.keyCode <= 90) {
-        checkLetter(event.key);
-    }
+//     document.onKeyUp = function(event) {
+//     if (event.keyCode >= 65 && event.keyCode <= 90) {
+//         checkLetter(event.key);
+//     }
 
-}
+// }
 
 
 
@@ -297,3 +301,5 @@ checkLetter();
 // var incorrectLetters = [];
 // var counter = 0; //do i need this?
 // var guessesLeft = 13;
+
+});
