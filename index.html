@@ -2,34 +2,33 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>SciFi Hangman</title>
+        <title>Battle Royale Hangman</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
         <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
         <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
-        <script src="assets/javascript/game.js" async defer></script>
-        <script src="assets/javascript/word-object.js" async defer></script>
-        <!-- <script src="jquery-3.3.1.min.js"></script> -->
-        <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <H1 class="tc" id="title">SciFi Hangman</H1>
+        <H1 class="tc" id="title">Battle Royale Hangman</H1>
         <div class="fl w-100 tc position background-color word-size">
             <div class="fl w-100 spacing">Press any key to take a guess</div>
             <div class="fl w-100 spacing">
-                <div class="fl w-third" id="img-div">This will be the image</div>
-                <div class="fl w-two-thirds" id="answer">_____ ___ ____ __ _ _ </div>
+                <div class="fl w-third">
+                    <div id="img-text" class="spacing">Try to guess the Battle Royale Game title</div>        
+                    <div id="img-div" class="spacing"><img src="assets/images/battle-royal.jpg"></div>
+                </div>
+                <div class="fl w-two-thirds">
+                    <div class="fl w-100"> Current Word</div>
+                    <div id="answer" class="fl w-100">__________</div>
+                </div>
             </div>
             <div class="fl w-100 spacing">
                 <div class="fl w-third">
@@ -38,13 +37,13 @@
                 </div>
                 <div class="fl w-third">
                     <div id="fl w-100">
-                        <div>Guesses left</div>
-                        <div id="guessesLeft"></div>
+                        <div class="fl w-100">Guesses left</div>
+                        <div class="fl w-100" id="guessesLeft">10</div>
                     </div>
                     <br>
                     <div class="fl w-100">
-                        <div>Incorrect Letters:</div>
-                        <div id="wrongGuesses"></div>
+                        <div class="fl w-100">Incorrect Letters:</div>
+                        <div class="fl w-100" id="wrongGuesses"></div>
                     </div>
                 </div>
                 <div class="fl w-third">
@@ -52,5 +51,8 @@
                         <div class="fl w-100" id="losses">0</div>
             </div>
         </div>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+         <script src="assets/javascript/word-object.js" async defer></script>
+         <script src="assets/javascript/game.js" async defer></script>
     </body>
 </html>
