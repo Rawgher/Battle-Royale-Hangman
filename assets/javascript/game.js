@@ -1,5 +1,9 @@
 $(document).ready(function(){
 
+$("#img-div").fadeOut(1);
+$("#img-div").removeClass('hidden');
+$("#img-div").fadeIn(5000);
+
 var goodSound = new Audio("assets/audio/yee.m4a");
 var badSound = new Audio("assets/audio/womp-womp.m4a");
 var winSound = new Audio("assets/audio/fresh.m4a");
@@ -10,7 +14,7 @@ var gameState = {
   wins: 0,
   losses: 0,
   secret: {},
-  letters: [],
+  displayedLetters: [],
   guessesLeft: 0,
   totalGuesses: 10,
   wrongLetters: [],
@@ -26,24 +30,24 @@ var gameState = {
 
 var winText = "You did it! Now play again...";
 var lossText = {
-    text: "GAME OVER! *Teleports behind you* Nothing personal, kid",
+    text: "GAME OVER! Nothing personal, kid!",
     image: "assets/images/nothing-personal.jpg",
 }
 
 // reset game and give new word
 gameState.reset = function () {
-    this.guessLeft = this.totalGuesses;
+    this.guessesLeft = this.totalGuesses;
     this.wrongLetters = [];
 
     var wordIndex = Math.floor(Math.random() * myWords.length);
     this.secret = myWords[wordIndex];
 
-    this.letters = [];
+    this.displayedLetters = [];
     for (var i = 0; i < this.secret.word.length; i++) {
         if (this.secret.word[i] === " ") {
-            this.letters.push(" ");
+            this.displayedLetters.push(" ");
         } else {
-            this.letters.push("__");
+            this.displayedLetters.push(" _ ");
         }
     }
 }
@@ -52,9 +56,9 @@ gameState.updateGame = function() {
     document.getElementById("wins").textContent = this.wins;
     document.getElementById("guessesLeft").textContent = this.guessesLeft;
 
-    var displayedWordString = "";
-    for (var i = 0; this.letters.length; i++) {
-        displayedWordString += this.letters[i];
+    var displayedWordString = " ";
+    for (var i = 0; i < this.displayedLetters.length; i++) {
+        displayedWordString += this.displayedLetters[i];
     } 
     document.getElementById("answer").textContent = displayedWordString;
 
@@ -75,8 +79,8 @@ gameState.updateInfo = function (winOrLoseMsg) {
 }
 // sees if we win - might have to change
 gameState.userWin = function() {
-    for (var i = 0; i < this.letters.length; i++) {
-        if (this.letters[i] === "__") {
+    for (var i = 0; i < this.displayedLetters.length; i++) {
+        if (this.displayedLetters[i] === " _ ") {
             return false;
         }
     }
@@ -89,8 +93,8 @@ gameState.userLost = function () {
 
 //check if letter has been used
 gameState.letterUsed = function(letter) {
-    for (var i = 0; i < this.letters.length; i++) {
-        if (letter === this.letters[i]) {
+    for (var i = 0; i < this.wrongLetters.length; i++) {
+        if (letter === this.wrongLetters[i]) {
             return true;
         }
     } 
@@ -102,7 +106,7 @@ gameState.applyLetter = function(letter) {
     var did_swap = false;
     for (var i = 0; i < this.secret.word.length; i++ ) {
         if (letter === this.secret.word[i]) {
-            this.letters[i] = letter;
+            this.displayedLetters[i] = letter;
             did_swap = true;
         }
     }
@@ -112,7 +116,7 @@ gameState.applyLetter = function(letter) {
 //process the players guess
 gameState.processInput = function(letter) {
     if (!this.letterUsed(letter)) {
-        this.letters.push(letter);
+        this.wrongLetters.push(letter);
 
         if (this.applyLetter(letter)) {
             goodSound.play();
@@ -131,8 +135,10 @@ gameState.processInput = function(letter) {
         else if (this.userLost()) {
             defeatSound.play();
             this.losses += 1;
-            this.updateInfo(lossText);
-            this.reset;
+            document.getElementById("losses").textContent = this.losses;
+            this.updateInfo(lossText.text);
+            document.getElementById("img-div").src = lossText.image;
+            this.reset();
         }
         this.updateGame();
     }
@@ -159,5 +165,22 @@ document.onkeyup = gameInput;
 
 gameState.reset();
 gameState.updateGame();
+
+
+ // Visibility Buttons
+ $(".vis-button").on("click", function() {
+    $("img").animate({ opacity: "1" });
+  });
+  $(".invis-button").on("click", function() {
+    $("img").animate({ opacity: "0.05" });
+  });
+
+  $('.crazy-button').on("click", function(){
+  $('img').animate('transitionend', onTransitionEnd, false);
+  });
+
+  function onTransitionEnd() {
+    // Handle the transition finishing.
+  }
 
 });

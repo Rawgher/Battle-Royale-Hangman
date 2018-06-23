@@ -10,11 +10,11 @@ myWords = [
         image: "assets/images/pubg.jpg",
         description: "This is what started the craze, but the developers really dropped the ball."
     },
-    // {
-    //     word: "h1z1",
-    //     image: "assets/images/h1z1.jpg",
-    //     description: "I thought this was about zombies or something?"
-    // },
+    {
+        word: "H1Z1",
+        image: "assets/images/h1z1.jpg",
+        description: "I thought this was about zombies or something?"
+    },
     {
         word: "CUISINE ROYALE",
         image: "assets/images/cuisine-royale.jpg",
@@ -42,7 +42,7 @@ myWords = [
     },
     {
         word: "RADICAL HEIGHTS",
-        image: "assets/images/radical-heights.jpg",
+        image: "assets/images/radical-heights.png",
         description: "If you want something that's a little more hipster, play this one."
     },
     {

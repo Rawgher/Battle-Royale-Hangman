@@ -16,17 +16,25 @@
         <script src="assets/javascript/word-object.js"></script>
         <script src="assets/javascript/game.js"></script>
     </head>
-    <body>
+    <body class="code" id="background">
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <H1 class="tc" id="title">Battle Royale Hangman</H1>
-        <div class="fl w-100 tc position background-color word-size">
+        <div class="fl w-100 tc position word-size bg-washed-blue" id="opacity">
             <div class="fl w-100 spacing">Press any key to take a guess</div>
             <div class="fl w-100 spacing">
                 <div class="fl w-third">
-                    <div id="img-text" class="fl w-100">Try to guess the Battle Royale Game title</div>        
-                    <div id="img-div" class="fl w-100"><img src="assets/images/battle-royal.jpg"></div>
+                    <div id="img-text" class="fl w-100">Try to guess the game title</div> 
+                    <br>    
+                    <br>   
+                    <img src="assets/images/battle-royal.jpg" class="fl w-100 hidden" id="img-div">
+                    <br>
+                    <div class="fl w-100">
+                            <a class="f6 link dim br2 ph3 pv2 mb2 dib white bg-black vis-button" href="#0">Visible</a>
+                            <a class="f6 link dim br2 ph3 pv2 mb2 dib white bg-black invis-button" href="#0">Invisible</a>
+                            <a class="f6 link dim br2 ph3 pv2 mb2 dib white bg-black crazy-button" href="#0">CRAZY</a>
+                            </div>
                 </div>
                 <div class="fl w-two-thirds">
                     <div class="fl w-100"> Current Word</div>
@@ -45,7 +53,7 @@
                     </div>
                     <br>
                     <div class="fl w-100">
-                        <div class="fl w-100">Incorrect Letters:</div>
+                        <div class="fl w-100">Letters Used</div>
                         <div class="fl w-100" id="wrongGuesses"></div>
                     </div>
                 </div>
