@@ -171,6 +171,8 @@ gameState.updateGame();
 //     $("img").animate({ opacity: "0.05" });
 //   });
 
+
+// try and get this working later -- took CSS out so will have to insert that again?
 //   $('.crazy-button').on("click", function(){
 //   $('img').animate('transitionend', onTransitionEnd, false);
 //   });
