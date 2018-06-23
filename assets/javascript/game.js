@@ -1,15 +1,10 @@
-//$(document).ready(function(){
+$(document).ready(function(){
 
+var goodSound = new Audio("assets/audio/yee.m4a");
+var badSound = new Audio("assets/audio/womp-womp.m4a");
+var winSound = new Audio("assets/audio/fresh.m4a");
 
-
-//var coin_sound = new Audio("assets/audio/smw_coin.wav");
-//var defeat_sound = new Audio("assets/audio/smb_defeat.wav");
-//var victory_sound = new Audio("assets/audio/smb_victory.wav");
-
-//var hurt_sound = new Audio("assets/audio/loz_hurt.wav");
-
-
-
+var defeatSound = new Audio("assets/audio/nothing-personal.m4a");
 
 var gameState = {
   wins: 0,
@@ -120,21 +115,21 @@ gameState.processInput = function(letter) {
         this.letters.push(letter);
 
         if (this.applyLetter(letter)) {
-            //good sound name.play();
+            goodSound.play();
         }
         else {
-            //bad sound name.play();
+            badSound.play();
             this.guessesLeft -= 1;
         }
 
         if (this.userWin()) {
-            //win sound name.play();
+            winSound.play();
             this.wins += 1;
             this.updateInfo(winText);
             this.reset();
         } 
         else if (this.userLost()) {
-            //defeat sound name.play();
+            defeatSound.play();
             this.losses += 1;
             this.updateInfo(lossText);
             this.reset;
@@ -165,4 +160,4 @@ document.onkeyup = gameInput;
 gameState.reset();
 gameState.updateGame();
 
-// });
+});

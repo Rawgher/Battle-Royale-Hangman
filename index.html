@@ -12,6 +12,9 @@
         <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
         <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
         <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="assets/javascript/word-object.js"></script>
+        <script src="assets/javascript/game.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -22,8 +25,8 @@
             <div class="fl w-100 spacing">Press any key to take a guess</div>
             <div class="fl w-100 spacing">
                 <div class="fl w-third">
-                    <div id="img-text" class="spacing">Try to guess the Battle Royale Game title</div>        
-                    <div id="img-div" class="spacing"><img src="assets/images/battle-royal.jpg"></div>
+                    <div id="img-text" class="fl w-100">Try to guess the Battle Royale Game title</div>        
+                    <div id="img-div" class="fl w-100"><img src="assets/images/battle-royal.jpg"></div>
                 </div>
                 <div class="fl w-two-thirds">
                     <div class="fl w-100"> Current Word</div>
@@ -51,8 +54,5 @@
                         <div class="fl w-100" id="losses">0</div>
             </div>
         </div>
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-         <script src="assets/javascript/word-object.js" async defer></script>
-         <script src="assets/javascript/game.js" async defer></script>
     </body>
 </html>
