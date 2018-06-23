@@ -1,9 +1,5 @@
 $(document).ready(function(){
 
-$("#img-div").fadeOut(1);
-$("#img-div").removeClass('hidden');
-$("#img-div").fadeIn(5000);
-
 var goodSound = new Audio("assets/audio/yee.m4a");
 var badSound = new Audio("assets/audio/womp-womp.m4a");
 var winSound = new Audio("assets/audio/fresh.m4a");
@@ -167,20 +163,20 @@ gameState.reset();
 gameState.updateGame();
 
 
- // Visibility Buttons
- $(".vis-button").on("click", function() {
-    $("img").animate({ opacity: "1" });
-  });
-  $(".invis-button").on("click", function() {
-    $("img").animate({ opacity: "0.05" });
-  });
+//  // Visibility Buttons
+//  $(".vis-button").on("click", function() {
+//     $("img").animate({ opacity: "1" });
+//   });
+//   $(".invis-button").on("click", function() {
+//     $("img").animate({ opacity: "0.05" });
+//   });
 
-  $('.crazy-button').on("click", function(){
-  $('img').animate('transitionend', onTransitionEnd, false);
-  });
+//   $('.crazy-button').on("click", function(){
+//   $('img').animate('transitionend', onTransitionEnd, false);
+//   });
 
-  function onTransitionEnd() {
-    // Handle the transition finishing.
-  }
+//   function onTransitionEnd() {
+//     // Handle the transition finishing.
+//   }
 
 });
