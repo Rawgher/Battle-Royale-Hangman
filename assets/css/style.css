@@ -6,6 +6,10 @@ html {
   background-size: cover;
 }
 
+
+body {
+    padding-top: 50px;
+}
 .position {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -69,6 +73,10 @@ img {
     .word-size {
         font-size: 15px;
     }
+
+    body {
+        padding-top: 85px;
+    }
 }
 
 @media screen and (max-width: 640px) {
@@ -78,5 +86,9 @@ img {
     
     .word-size {
         font-size: 10px;
+    }
+
+    body {
+        padding-top: 50px;
     }
 } 
