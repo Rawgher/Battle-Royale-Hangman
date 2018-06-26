@@ -91,7 +91,9 @@ gameState.userLost = function () {
 gameState.letterUsed = function(letter) {
     for (var i = 0; i < this.wrongLetters.length; i++) {
         if (letter === this.wrongLetters[i]) {
+            alert("You've already used this letter, try another one or I'll keep bothering you!");
             return true;
+            
         }
     } 
     return false;
