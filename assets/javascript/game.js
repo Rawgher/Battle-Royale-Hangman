@@ -93,7 +93,6 @@ gameState.letterUsed = function(letter) {
         if (letter === this.wrongLetters[i]) {
             alert("You've already used this letter, try another one or I'll keep bothering you!");
             return true;
-            
         }
     } 
     return false;
